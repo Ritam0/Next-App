@@ -13,6 +13,7 @@ export async function POST(request:Request){
         })
        // console.log("1")
         if(existingUsername){
+            console.log("hoi");
             return Response.json({
                 succes:false,
                 message:"User Already Exists"
