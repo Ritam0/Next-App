@@ -67,7 +67,7 @@ const changeDisplay=()=>{
   setAllDisplay(!allDisplay);
 }
   return (
-    <div className="min-h-screen bg-black antialiased bg-grid-white/[0.2] text-white flex flex-col items-center justify-center pt-36 lg:pt-0">
+    <div className="min-h-screen bg-black antialiased bg-grid-white/[0.2] text-white flex flex-col items-center justify-center gap-4 pt-36 md:pt-0 pb-6">
       <Spotlight
         className="-top-10 left-36 md:left-80 md:-top-40"
         fill="white"
@@ -82,7 +82,7 @@ const changeDisplay=()=>{
           style={{ height: '300px', width: '300px' }} // Adjust size as needed
         />
         </div>
-        <div className="calculator border rounded-[15px] flex flex-col gap-4 lg:gap-16 items-center justify-center w-[80%] h-[80%] md:h-[300px] p-2">
+        <div className="calculator border rounded-[15px] flex flex-col gap-4 lg:gap-16 items-center justify-center w-[100%] h-[80%] md:h-[300px] p-2">
           <div className="l1">
             <h1>Calculate Your Numbers</h1>
           </div>
@@ -91,7 +91,7 @@ const changeDisplay=()=>{
               type="number"
               value={date}
               onChange={(e) => setDate(e.target.value)}
-              className="border rounded-[10px] bg-transparent  w-16 p-2 gap-4 border-2 border-white"
+              className="border rounded-[10px] bg-transparent  w-20 p-2 gap-4 border-2 border-white"
               placeholder="DD"
               inputMode="numeric"
               pattern="\d*"
@@ -100,7 +100,7 @@ const changeDisplay=()=>{
               type="number"
               value={month}
               onChange={(e) => setMonth(e.target.value)}
-              className="border rounded-[10px] bg-transparent  w-16 p-2 gap-4 border-2 border-white"
+              className="border rounded-[10px] bg-transparent  w-20 p-2 gap-4 border-2 border-white"
               placeholder="MM"
               inputMode="numeric"
               pattern="\d*"
@@ -109,7 +109,7 @@ const changeDisplay=()=>{
               type="number"
               value={year}
               onChange={(e) => setYear(e.target.value)}
-              className="border rounded-[10px] bg-transparent  w-20 p-2 gap-4 border-2 border-white"
+              className="border rounded-[10px] bg-transparent  w-24 p-2 gap-4 border-2 border-white"
               placeholder="YYYY"
               inputMode="numeric"
               pattern="\d*"
