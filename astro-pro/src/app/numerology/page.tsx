@@ -67,14 +67,14 @@ const changeDisplay=()=>{
 }
   return (
     <div className="min-h-screen bg-black antialiased bg-grid-white/[0.2] text-white flex flex-col items-center justify-center pt-36 lg:pt-0">
-      <h1 className='mt-6 md:mt-36 font-semibold text-[28px] md:text-4xl'>Life is the magic of 3-6-9</h1>
+      <h1 className='mt-6 md:mt-36 font-semibold text-[24px] md:text-4xl'>Life is the magic of 3-6-9</h1>
       <div className="upper flex flex-col md:flex-row items-center justify-center gap-8 text-[16px] md:gap-16">
         <div className="image">
         <Player
           autoplay
           loop
           src={planets}
-          style={{ height: '400px', width: '400px' }} // Adjust size as needed
+          style={{ height: '300px', width: '300px' }} // Adjust size as needed
         />
         </div>
         <div className="calculator border rounded-[15px] flex flex-col gap-4 lg:gap-16 items-center justify-center w-[80%] h-[80%] md:h-[300px] p-2">
