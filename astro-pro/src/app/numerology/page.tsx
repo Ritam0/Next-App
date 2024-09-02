@@ -157,13 +157,13 @@ const changeDisplay=()=>{
               </button>
             </div>
         <div className="details">
-        <div className="numerology-container flex flex-col gap-8 items-center justify-center p-4 ">
+        <div className="numerology-container flex flex-col gap-8 items-center justify-center p-0 md:p-4 ">
       {NumerologyApi.map((number) => (
         <div key={number.id} className={`${(!allDisplay && (number.id!=mulank && number.id!=bhagyank))?'hidden':'block'} numerology-card border p-6 rounded-[20px] w-[80%] flex flex-col md:flex-row items-center justify-center gap-6`}>
           <div className="img h-[80%] w-[80%]">
           <img src={number.image} alt={`Number ${number.id}`} className="numerology-image" />
           </div>
-          <div className="details text-[20px]">
+          <div className="details text-[16px] md:text-[20px]">
             <h2>Number {number.id}</h2>
             <br />
             <h3>Ruling Planet: {number.rulingPlanet}</h3>
