@@ -1,0 +1,137 @@
+"use client";
+import React, { useState } from 'react';
+import { Player } from '@lottiefiles/react-lottie-player';
+import planets from "@/app/Assets/planets.json";
+const Page = () => {
+  const [date, setDate] = useState("");
+  const [month, setMonth] = useState("");
+  const [year, setYear] = useState("");
+  const [mulank, setMulank] = useState<number>(0);
+  const [bhagyank, setBhagyank] = useState<number>(0);
+  const [isFalse, setIsFalse] = useState<boolean>(false);
+  const [found, setFound] = useState<boolean>(false);
+
+  const makeSingle = (num:number) => {
+    while (num >= 10) {
+      let sum = 0;
+      
+      // Sum the digits of the number
+      while (num > 0) {
+        sum += num % 10;
+        num = Math.floor(num / 10);
+      }
+      
+      num = sum; // Set the num to the sum of its digits
+    }
+    console.log(num);
+    return num;
+  };
+
+  const numberCalculate = () => {
+    const day=Number(date);
+    const mo=Number(month);
+    const yr=Number(year);
+    if (day < 1 || day > 31) {
+      setIsFalse(true);
+      setFound(false);
+      setDate("");
+      setMonth("");
+      setYear("");
+    } else if (mo < 1 || mo > 12) {
+      setIsFalse(true);
+      setFound(false);
+      setDate("");
+      setMonth("");
+      setYear("");
+    } else if (yr < 1 || yr > 3000) {
+      setIsFalse(true);
+      setFound(false);
+      setDate("");
+      setMonth("");
+      setYear("");
+    } else {
+      setIsFalse(false);
+      const mulankResult = makeSingle(day);
+      let temp = makeSingle(day) + makeSingle(mo) + makeSingle(yr);
+      let bhagyankResult = makeSingle(temp);
+      setMulank(mulankResult);
+      setBhagyank(bhagyankResult);
+      setFound(true);
+      
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-black antialiased bg-grid-white/[0.2] text-white flex flex-col items-center justify-center pt-36 lg:pt-0 border">
+      <h1 className='mt-6 font-semibold text-4xl'>Life is the magic of 3-6-9</h1>
+      <div className="upper flex flex-col md:flex-row items-center justify-center gap-8 text-[16px] md:gap-16">
+        <div className="image">
+        <Player
+          autoplay
+          loop
+          src={planets}
+          style={{ height: '500px', width: '500px' }} // Adjust size as needed
+        />
+        </div>
+        <div className="calculator border rounded-[15px] flex flex-col gap-4 lg:gap-16 items-center justify-center w-[80%] h-[80%] md:h-[300px] p-2">
+          <div className="l1">
+            <h1>Calculate Your Numbers</h1>
+          </div>
+          <div className="l2 flex flex-col md:flex-row items-center justify-center gap-4 w-full p-2">
+            <input
+              type="number"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              className="border rounded bg-transparent  w-16 p-2 gap-4 border-2 border-white rounded-full"
+              placeholder="DD"
+              inputMode="numeric"
+              pattern="\d*"
+            />
+            <input
+              type="number"
+              value={month}
+              onChange={(e) => setMonth(e.target.value)}
+              className="border rounded bg-transparent  w-16 p-2 gap-4 border-2 border-white rounded-full"
+              placeholder="MM"
+              inputMode="numeric"
+              pattern="\d*"
+            />
+            <input
+              type="number"
+              value={year}
+              onChange={(e) => setYear(e.target.value)}
+              className="border rounded bg-transparent  w-20 p-2 gap-4 border-2 border-white rounded-full"
+              placeholder="YYYY"
+              inputMode="numeric"
+              pattern="\d*"
+            />
+            <div className="btn">
+              <button
+                onClick={numberCalculate}
+                className="relative inline-flex items-center justify-start inline-block px-5 py-3 overflow-hidden font-bold rounded-full group"
+              >
+                <span className="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
+                <span className="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-8"></span>
+                <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-gray-900">
+                  Calculate
+                </span>
+                <span className="absolute inset-0 border-2 border-white rounded-full"></span>
+              </button>
+            </div>
+          </div>
+          <div className="l3">
+            <p className={`${isFalse ? 'block' : 'hidden'}`}>Enter a Valid Date of Birth</p>
+            <p className={`${found ? 'block' : 'hidden'}`}>
+              Your Mulank is {mulank} and Bhagyank is {bhagyank}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="lower">
+
+      </div>
+    </div>
+  );
+};
+
+export default Page;

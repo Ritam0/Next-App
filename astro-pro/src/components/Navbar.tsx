@@ -47,47 +47,35 @@ const Navbar = ({ className }: { className?: string }) => {
             />
           </div>
         </MenuItem> */}
-        <Link href={'#'} className="flex gap-8 ">
+        <Link href={'/'} className="flex gap-8 ">
         <MenuItem setActive={setActive} active={active} item="Home">
+          
+        </MenuItem>
+
+        <MenuItem setActive={setActive} active={active} item="Astrology">
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/hobby">Hobby</HoveredLink>
-            <HoveredLink href="/individual">Individual</HoveredLink>
-            <HoveredLink href="/team">Team</HoveredLink>
-            <HoveredLink href="/enterprise">Enterprise</HoveredLink>
+            <HoveredLink href="/numerology">Numerology</HoveredLink>
+            <HoveredLink href="/palmistry">Palmistry</HoveredLink>
+            <HoveredLink href="/vastu">Vastu</HoveredLink>
+            <HoveredLink href="/rashi-fal">Horoscope</HoveredLink>
+            <HoveredLink href="/kundali">Kundali</HoveredLink>
           </div>
         </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Neumerology">
-          <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/hobby">Hobby</HoveredLink>
-            <HoveredLink href="/individual">Individual</HoveredLink>
-            <HoveredLink href="/team">Team</HoveredLink>
-            <HoveredLink href="/enterprise">Enterprise</HoveredLink>
-          </div>
+
+        <MenuItem setActive={setActive} active={active} item="Blogs">
+          
         </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Vastu">
-          <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/hobby">Hobby</HoveredLink>
-            <HoveredLink href="/individual">Individual</HoveredLink>
-            <HoveredLink href="/team">Team</HoveredLink>
-            <HoveredLink href="/enterprise">Enterprise</HoveredLink>
-          </div>
+
+        <MenuItem setActive={setActive} active={active} item="Pricing">
+          
         </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Kundali">
-          <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/hobby">Hobby</HoveredLink>
-            <HoveredLink href="/individual">Individual</HoveredLink>
-            <HoveredLink href="/team">Team</HoveredLink>
-            <HoveredLink href="/enterprise">Enterprise</HoveredLink>
-          </div>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Rashi-Fal">
-          <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/hobby">Hobby</HoveredLink>
-            <HoveredLink href="/individual">Individual</HoveredLink>
-            <HoveredLink href="/team">Team</HoveredLink>
-            <HoveredLink href="/enterprise">Enterprise</HoveredLink>
-          </div>
-        </MenuItem>
+          
+          <MenuItem setActive={setActive} active={active} item="Profile" >
+          
+          </MenuItem>
+          
+        
+
         </Link>
       </Menu>
     </div>
