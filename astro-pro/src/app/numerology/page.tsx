@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
 import planets from "@/app/Assets/planets.json";
 import NumerologyApi from '@/data/NumerologyData';
+import { Spotlight } from '@/components/ui/Spotlight';
 const Page = () => {
   const [date, setDate] = useState("");
   const [month, setMonth] = useState("");
@@ -67,7 +68,11 @@ const changeDisplay=()=>{
 }
   return (
     <div className="min-h-screen bg-black antialiased bg-grid-white/[0.2] text-white flex flex-col items-center justify-center pt-36 lg:pt-0">
-      <h1 className='mt-6 md:mt-36 font-semibold text-[24px] md:text-4xl'>Life is the magic of 3-6-9</h1>
+      <Spotlight
+        className="-top-10 left-36 md:left-80 md:-top-40"
+        fill="white"
+        />
+      <h1 className='mt-6 md:mt-36 font-semibold text-[24px] md:text-4xl pb-4 md:pb-8'>Life is the magic of 3-6-9</h1>
       <div className="upper flex flex-col md:flex-row items-center justify-center gap-8 text-[16px] md:gap-16">
         <div className="image">
         <Player
