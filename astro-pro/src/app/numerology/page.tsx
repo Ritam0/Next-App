@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
 import planets from "@/app/Assets/planets.json";
+import NumerologyApi from '@/data/NumerologyData';
 const Page = () => {
   const [date, setDate] = useState("");
   const [month, setMonth] = useState("");
@@ -10,6 +11,7 @@ const Page = () => {
   const [bhagyank, setBhagyank] = useState<number>(0);
   const [isFalse, setIsFalse] = useState<boolean>(false);
   const [found, setFound] = useState<boolean>(false);
+  const [allDisplay,setAllDisplay]=useState(true);
 
   const makeSingle = (num:number) => {
     while (num >= 10) {
@@ -60,10 +62,12 @@ const Page = () => {
       
     }
   };
-
+const changeDisplay=()=>{
+  setAllDisplay(!allDisplay);
+}
   return (
-    <div className="min-h-screen bg-black antialiased bg-grid-white/[0.2] text-white flex flex-col items-center justify-center pt-36 lg:pt-0 border">
-      <h1 className='mt-6 font-semibold text-4xl'>Life is the magic of 3-6-9</h1>
+    <div className="min-h-screen bg-black antialiased bg-grid-white/[0.2] text-white flex flex-col items-center justify-center pt-36 lg:pt-0">
+      <h1 className='mt-6 md:mt-36 font-semibold text-4xl'>Life is the magic of 3-6-9</h1>
       <div className="upper flex flex-col md:flex-row items-center justify-center gap-8 text-[16px] md:gap-16">
         <div className="image">
         <Player
@@ -82,7 +86,7 @@ const Page = () => {
               type="number"
               value={date}
               onChange={(e) => setDate(e.target.value)}
-              className="border rounded bg-transparent  w-16 p-2 gap-4 border-2 border-white rounded-full"
+              className="border rounded-[10px] bg-transparent  w-16 p-2 gap-4 border-2 border-white"
               placeholder="DD"
               inputMode="numeric"
               pattern="\d*"
@@ -91,7 +95,7 @@ const Page = () => {
               type="number"
               value={month}
               onChange={(e) => setMonth(e.target.value)}
-              className="border rounded bg-transparent  w-16 p-2 gap-4 border-2 border-white rounded-full"
+              className="border rounded-[10px] bg-transparent  w-16 p-2 gap-4 border-2 border-white"
               placeholder="MM"
               inputMode="numeric"
               pattern="\d*"
@@ -100,7 +104,7 @@ const Page = () => {
               type="number"
               value={year}
               onChange={(e) => setYear(e.target.value)}
-              className="border rounded bg-transparent  w-20 p-2 gap-4 border-2 border-white rounded-full"
+              className="border rounded-[10px] bg-transparent  w-20 p-2 gap-4 border-2 border-white"
               placeholder="YYYY"
               inputMode="numeric"
               pattern="\d*"
@@ -127,8 +131,55 @@ const Page = () => {
           </div>
         </div>
       </div>
-      <div className="lower">
-
+      <div className="lower flex flex-col pt-8 items-center justify-center gap-8">
+      <div className="btn">
+              <button
+                onClick={changeDisplay}
+                className={`${allDisplay?"hidden":"block"} relative inline-flex items-center justify-start inline-block px-5 py-3 overflow-hidden font-bold rounded-full group`}
+              >
+                <span className="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
+                <span className="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-8"></span>
+                <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-gray-900">
+                  See All
+                </span>
+                <span className="absolute inset-0 border-2 border-white rounded-full"></span>
+              </button>
+              <button
+                onClick={changeDisplay}
+                className={`${allDisplay?"block":"hidden"} relative inline-flex items-center justify-start inline-block px-5 py-3 overflow-hidden font-bold rounded-full group`}
+              >
+                <span className="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
+                <span className="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-8"></span>
+                <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-gray-900">
+                  Only My Numbers
+                </span>
+                <span className="absolute inset-0 border-2 border-white rounded-full"></span>
+              </button>
+            </div>
+        <div className="details">
+        <div className="numerology-container flex flex-col gap-8 items-center justify-center p-4 ">
+      {NumerologyApi.map((number) => (
+        <div key={number.id} className={`${(!allDisplay && (number.id!=mulank && number.id!=bhagyank))?'hidden':'block'} numerology-card border p-6 rounded-[20px] w-[80%] flex flex-col md:flex-row items-center justify-center gap-6`}>
+          <div className="img h-[80%] w-[80%]">
+          <img src={number.image} alt={`Number ${number.id}`} className="numerology-image" />
+          </div>
+          <div className="details text-[20px]">
+            <h2>Number {number.id}</h2>
+            <br />
+            <h3>Ruling Planet: {number.rulingPlanet}</h3>
+            <br />
+            <p><strong>Character:</strong> {number.character}</p>
+            <br />
+            <p><strong>Details:</strong> {number.details}</p>
+            <br />
+            <p><strong>Famous Persons:</strong> {number.persons}</p>
+          </div>
+          
+          
+        </div>
+      ))}
+    </div>
+        </div>
       </div>
     </div>
   );
