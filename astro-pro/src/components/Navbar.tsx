@@ -57,7 +57,7 @@ const Navbar = ({ className }: { className?: string }) => {
             <HoveredLink href="/numerology">Numerology</HoveredLink>
             <HoveredLink href="/palmistry">Palmistry</HoveredLink>
             <HoveredLink href="/vastu">Vastu</HoveredLink>
-            <HoveredLink href="/rashi-fal">Horoscope</HoveredLink>
+            <HoveredLink href="/horoscope">Horoscope</HoveredLink>
             <HoveredLink href="/kundali">Kundali</HoveredLink>
           </div>
         </MenuItem>
