@@ -71,8 +71,6 @@ const Page = () => {
                     onChange={(e) => setName(e.target.value)}
                     className="border rounded-[10px]  text-white bg-black w-40 p-2 gap-4 border-2 border-white mb-4"
                     placeholder="Your Name"
-                    inputMode="numeric"
-                    pattern="\d*"
                 />
                 <select
                     value={zodiac}
