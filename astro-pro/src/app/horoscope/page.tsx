@@ -66,7 +66,7 @@ const Page = () => {
                 </div>
                 <div className="form flex flex-col md:flex-row items-center justify-center gap-6 text-[15px]">
                 <input
-                    
+                    type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     className="border rounded-[10px]  text-white bg-black w-40 p-2 gap-4 border-2 border-white mb-4"
