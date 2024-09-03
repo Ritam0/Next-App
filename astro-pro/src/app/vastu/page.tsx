@@ -40,7 +40,7 @@ const page = () => {
                 <div className="about w-[90%] flex flex-col items-center gap-8  p-4 pt-6">
                 <h1 className='text-[32px] text-white flex flex-col items-center justify-center text-center'>Tips From Vastu Shastra</h1>
                 {Vastu_data.vastu_tips.map((number) => (
-                    <div key={number.id} className="text-white text-[24px] numerology-card border p-4 border-white border-[3px] hover:scale-2 rounded-[20px] w-[80%] flex flex-col items-center justify-center gap-8 transition-transform transform hover:scale-105">
+                    <div key={number.id} className="text-white text-[18px] md:text-[24px] numerology-card border p-4 border-white border-[3px] hover:scale-2 rounded-[20px] w-[80%] flex flex-col items-center justify-center gap-8 transition-transform transform hover:scale-105">
                     
                     <h1 className='font-bold'>Tips {number.id}:</h1>
                     <p className='text-center'>{number.tips}</p>
