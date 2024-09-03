@@ -21,14 +21,14 @@ const page = () => {
                     />
                 </div>
                 <div className="text">
-                    <h1 className='text-[32px] text-white flex flex-col items-center justify-center text-center'>Harmonize Your Space, Elevate Your Life <br /> Discover the Power of Vastu Shastra!</h1>
+                    <h1 className='text-[26px] text-white flex flex-col items-center justify-center text-center'>Harmonize Your Space, Elevate Your Life <br /> Discover the Power of Vastu Shastra!</h1>
                 </div>
                 {/* about vastu */}
                 <div className="about w-[90%] flex flex-col items-center gap-6 border border-white border-[3px] rounded-[20px] p-4">
-                <h1 className='text-[32px] text-white flex flex-col items-center justify-center text-center'>About Vastu Shastra</h1>
+                <h1 className='text-[24px] text-white flex flex-col items-center justify-center text-center'>About Vastu Shastra</h1>
                 <div className="about_vastu flex flex-col md:flex-row gap-6 items-center justify-center ">
                 <img className="w-[80%] md:w-[40%]" src="https://res.cloudinary.com/djyxyaqno/image/upload/v1725361704/WhatsApp_Image_2024-09-03_at_4.36.06_PM_q9vhlx.png" alt="" />
-                <p className="text-white text-[18px] md:text-[25px] text-center w-[90%]">{Vastu_data.about} 
+                <p className="text-white text-[14px] md:text-[18px] text-center w-[90%]">{Vastu_data.about} 
                     <br />
                     <a href="https://en.wikipedia.org/wiki/Vastu_shastra" target='_blank' className='text-gray text-[15px]'>Click here for more....</a>
                 </p>
@@ -40,7 +40,7 @@ const page = () => {
                 <div className="about w-[90%] flex flex-col items-center gap-8  p-4 pt-6">
                 <h1 className='text-[32px] text-white flex flex-col items-center justify-center text-center'>Tips From Vastu Shastra</h1>
                 {Vastu_data.vastu_tips.map((number) => (
-                    <div key={number.id} className="text-white text-[18px] md:text-[24px] numerology-card border p-4 border-white border-[3px] hover:scale-2 rounded-[20px] w-[80%] flex flex-col items-center justify-center gap-8 transition-transform transform hover:scale-105">
+                    <div key={number.id} className="text-white text-[14px] md:text-[18px] numerology-card border p-4 border-white border-[3px] hover:scale-2 rounded-[20px] w-[90%] md:w-[80%] flex flex-col items-center justify-center gap-8 transition-transform transform hover:scale-105">
                     
                     <h1 className='font-bold'>Tips {number.id}:</h1>
                     <p className='text-center'>{number.tips}</p>
