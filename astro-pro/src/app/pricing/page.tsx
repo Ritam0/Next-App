@@ -6,7 +6,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div>
+    <div className='h-auto  w-full relative overflow-hidden mx-auto'>
        <Spotlight
                 className="-top-10 left-36 md:left-80 md:-top-40"
                 fill="white"

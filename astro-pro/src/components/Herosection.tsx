@@ -9,7 +9,7 @@ const Herosection = () => {
   return (
     <div className='flex flex-col gap-6 items-center justify-center h-auto  w-full relative overflow-hidden mx-auto '>
          <Spotlight
-                className="-top-10 left-36 md:left-80 md:-top-40"
+                className="top-10 h-[1800px] w-[1800px] left-36 md:left-80 md:-top-40"
                 fill="white"
             />
         <div className="cote text-white font-semibold text-[26px] md:text-[56px] m-auto mt-32 ">Fortune Favours The Brave</div>
