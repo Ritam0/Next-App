@@ -5,6 +5,7 @@ import { Player } from '@lottiefiles/react-lottie-player';
 import Rashi from "@/app/Assets/Rashi-fal.json";
 import LoaderAnimation from "@/app/Assets/loader.json";  // Your loader animation JSON file
 import { Spotlight } from '@/components/ui/Spotlight';
+import Pricing from '@/components/Pricing';
 
 const Page = () => {
     const [zodiac, setZodiac] = useState("");
@@ -52,9 +53,9 @@ const Page = () => {
     };
 
     return (
-        <div className='dark bg-black w-full h-full min-h-screen p-4'>
+        <div className='dark bg-black w-full h-full min-h-screen p-4 h-auto  w-full relative overflow-hidden mx-auto'>
             <Spotlight
-                className="-top-10 left-36 md:left-80 md:-top-40"
+                className="top-10 h-[1800px] w-[1800px] left-36 md:left-80 md:-top-40"
                 fill="white"
             />
             <div className="content flex flex-col items-center justify center gap-8 pt-32">
@@ -143,6 +144,7 @@ const Page = () => {
                     )}
                 </div>
             </div>
+            <Pricing/>
         </div>
     );
 };

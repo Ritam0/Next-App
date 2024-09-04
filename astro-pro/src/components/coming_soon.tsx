@@ -5,12 +5,13 @@ import { Player } from '@lottiefiles/react-lottie-player';
 import coming from "@/app/Assets/coming.json";
 const Coming_soon = () => {
   return (
-    <div>
-      <div className='dark bg-black w-full h-full min-h-screen max-w-screen overflow-hidden p-16 pt-32'>
-            <Spotlight
+    <div className='h-auto  w-full relative overflow-hidden mx-auto'>
+      <Spotlight
                 className="-top-10 left-36 md:left-80 md:-top-40"
                 fill="white"
             />
+      <div className='dark bg-black w-full h-full min-h-screen max-w-screen overflow-hidden p-16 pt-32'>
+            
             <div className="content flex flex-col items-center justify center gap-8">
                 <div className="lottie flex flex-col items-center justify center">
                      <Player

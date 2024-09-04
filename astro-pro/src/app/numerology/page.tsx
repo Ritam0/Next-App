@@ -4,6 +4,7 @@ import { Player } from '@lottiefiles/react-lottie-player';
 import planets from "@/app/Assets/planets.json";
 import NumerologyApi from '@/data/NumerologyData';
 import { Spotlight } from '@/components/ui/Spotlight';
+import Pricing from '@/components/Pricing';
 const Page = () => {
   const [date, setDate] = useState("");
   const [month, setMonth] = useState("");
@@ -67,9 +68,9 @@ const changeDisplay=()=>{
   setAllDisplay(!allDisplay);
 }
   return (
-    <div className="min-h-screen bg-black antialiased bg-grid-white/[0.2] text-white flex flex-col items-center justify-center gap-4 pt-36 md:pt-0 pb-6">
+    <div className="min-h-screen bg-black antialiased bg-grid-white/[0.2] text-white flex flex-col items-center justify-center gap-4 pt-36 md:pt-0 pb-6 h-auto  w-full relative overflow-hidden mx-auto">
       <Spotlight
-        className="-top-10 left-36 md:left-80 md:-top-40"
+        className="top-10 h-[1800px] w-[1800px] left-36 md:left-80 md:top-0"
         fill="white"
         />
       <h1 className='mt-6 md:mt-36 font-semibold text-[24px] md:text-4xl pb-4 md:pb-8'>Life is the magic of 3-6-9</h1>
@@ -186,6 +187,7 @@ const changeDisplay=()=>{
     </div>
         </div>
       </div>
+      <Pricing/>
     </div>
   );
 };
