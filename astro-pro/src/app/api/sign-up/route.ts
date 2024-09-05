@@ -13,7 +13,6 @@ export async function POST(request:Request){
         })
        // console.log("1")
         if(existingUsername){
-            console.log("hoi");
             return Response.json({
                 succes:false,
                 message:"User Already Exists"
@@ -55,7 +54,7 @@ export async function POST(request:Request){
                 password:hashedPassword,
                 verifyCode,
                 verifyCodeExpiry:expiryDate,
-                isVerified:false,
+                isVerified:true,
                 isAcceptingMessage:true,
                 message:[]
             })

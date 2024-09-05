@@ -5,9 +5,11 @@ import vastu from "@/app/Assets/vastu_animation.json";
 import { Spotlight } from '@/components/ui/Spotlight';
 import Vastu_data from '@/data/vastuData';
 import Pricing from '@/components/Pricing';
+import Preloader from '@/components/Preloader';
 const page = () => {
   return (
     <div className='dark bg-black w-full h-full min-h-screen p-4 h-auto  w-full relative overflow-hidden mx-auto'>
+        <Preloader/>
             <Spotlight
                 className="top-10 h-[1800px] w-[1800px] left-36 md:left-80 md:-top-40"
                 fill="white"

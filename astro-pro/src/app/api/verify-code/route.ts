@@ -17,7 +17,9 @@ export async function POST(request:Request){
         }
 
         const codeMatch=user.verifyCode===code;
-        const isExpired=new Date(user.verifyCodeExpiry)>new Date();
+        const isExpired=new Date(user.verifyCodeExpiry)<new Date();
+        console.log(isExpired);
+        console.log(new Date());
         if(!codeMatch){
             return Response.json(
                 {

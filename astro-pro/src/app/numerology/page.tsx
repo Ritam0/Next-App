@@ -5,6 +5,7 @@ import planets from "@/app/Assets/planets.json";
 import NumerologyApi from '@/data/NumerologyData';
 import { Spotlight } from '@/components/ui/Spotlight';
 import Pricing from '@/components/Pricing';
+import Preloader from '@/components/Preloader';
 const Page = () => {
   const [date, setDate] = useState("");
   const [month, setMonth] = useState("");
@@ -69,6 +70,7 @@ const changeDisplay=()=>{
 }
   return (
     <div className="min-h-screen bg-black antialiased bg-grid-white/[0.2] text-white flex flex-col items-center justify-center gap-4 pt-36 md:pt-0 pb-6 h-auto  w-full relative overflow-hidden mx-auto">
+      <Preloader/>
       <Spotlight
         className="top-10 h-[1800px] w-[1800px] left-36 md:left-80 md:top-0"
         fill="white"
