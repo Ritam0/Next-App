@@ -36,7 +36,7 @@ const Navbar = ({ className }: { className?: string }) => {
         </MenuItem>
         </Link>
 
-        <Link href={'/numerology'} className="flex gap-4 md:gap-8 text-[15px] ">
+        <div  className="flex gap-4 md:gap-8 text-[15px] ">
         <MenuItem setActive={setActive} active={active} item="Astrology">
           <div className="flex flex-col space-y-2 text-sm">
             <HoveredLink href="/numerology">Numerology</HoveredLink>
@@ -46,7 +46,7 @@ const Navbar = ({ className }: { className?: string }) => {
             <HoveredLink href="/kundali">Kundali</HoveredLink>
           </div>
         </MenuItem>
-        </Link>
+        </div>
         
 
         <Link href={'/blogs'} className="flex gap-4 md:gap-8 text-[15px] ">
