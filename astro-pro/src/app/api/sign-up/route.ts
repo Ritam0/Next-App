@@ -63,22 +63,22 @@ export async function POST(request:Request){
             //console.log("123d")
 
             //send verification email
-            const emailResponse=await sendVerificationEmail(
-                email,
-                username,
-                verifyCode
-            )
-            if(!emailResponse.success){
-                return Response.json(
-                    {
-                        succes:false,
-                        message:"Registration failed"
-                    },
-                    {
-                        status:500
-                    }
-                )
-            }
+            // const emailResponse=await sendVerificationEmail(
+            //     email,
+            //     username,
+            //     verifyCode
+            // )
+            // if(!emailResponse.success){
+            //     return Response.json(
+            //         {
+            //             succes:false,
+            //             message:"Registration failed"
+            //         },
+            //         {
+            //             status:500
+            //         }
+            //     )
+            // }
             return Response.json(
                 {
                     succes:true,
