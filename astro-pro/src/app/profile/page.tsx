@@ -12,6 +12,8 @@ export default function Profile() {
     if (!session) {
         router.push('/sign-in'); // Redirect to login if not authenticated
         return null;
+    }else{
+      console.log(session.user)
     }
 
     const handleSignOut = async () => {

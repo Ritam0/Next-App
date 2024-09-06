@@ -31,6 +31,7 @@ export async function POST(request:Request){
                 password:hashedPassword,
             })
             console.log(newUser);
+            console.log(newUser);
             await newUser.save();
             return Response.json(
                 {
