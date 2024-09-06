@@ -23,10 +23,7 @@ export const authOptions:NextAuthOptions={
                     if(!user){
                         throw new Error("user not found");
                     }
-                    
-                    if(!user.isVerified){
-                        throw new Error("Please verify your account first");
-                    }
+                   
                     const isPasswordCorrect=await bcrypt.compare(credentials.password,user.password);
                     if(isPasswordCorrect){
                         return user;
@@ -46,9 +43,7 @@ export const authOptions:NextAuthOptions={
             if(user){
                 
                 token._id=user._id?.toString();
-                token.isVerified=user.isVerified;
-                token.userName=user.username;
-                token.isAcceptingMessage=user.isAcceptingMessage;
+                token.username=user.username;
                 
             }
             return token
@@ -56,8 +51,6 @@ export const authOptions:NextAuthOptions={
         async session({ session, token }) {
             if(token){
                 session.user._id=token._id as string;
-                session.user.isVerified=token.isVerified as boolean;
-                session.user.isAcceptingMessage=token.isAcceptingMessage as boolean;
                 session.user.username=token.email as string;
                 console.log(session.user);
                 console.log("session user")

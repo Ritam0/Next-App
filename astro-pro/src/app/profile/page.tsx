@@ -39,6 +39,10 @@ export default function Profile() {
                     <p>{session.user?._id}</p>
                 </div>
                 <div className="mb-4">
+                    <p className="font-semibold">Username:</p>
+                    <p>{session.user?.username}</p>
+                </div>
+                <div className="mb-4">
                     <p className="font-semibold">Email:</p>
                     <p>{session.user?.email}</p>
                 </div>

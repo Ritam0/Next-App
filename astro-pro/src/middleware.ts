@@ -17,12 +17,12 @@ export async function middleware(request: NextRequest) {
         )
     
     ){
-        return NextResponse.redirect(new URL('/dashboard', request.url))
+        return NextResponse.redirect(new URL('/profile', request.url))
     }
 
     if(!token && 
         (
-            url.pathname.startsWith('/dashboard') ||
+            url.pathname.startsWith('/profile') ||
             url.pathname.startsWith('/astro') ||
             url.pathname.startsWith('/verify')
     
