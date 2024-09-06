@@ -1,7 +1,7 @@
 {
     "version": 2,
     "functions": {
-        "api/**.ts": {
+        "api/sign-up.ts": {
             "maxDuration": 10
         }
     }
