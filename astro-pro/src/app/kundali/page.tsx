@@ -4,7 +4,7 @@ import Coming_soon from '@/components/coming_soon'
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 
-const page = () => {
+const Page = () => {
   const [loggedIn, setLoggedIn] = useState(false);
     const router = useRouter(); // Initialize router for redirection
   
@@ -21,4 +21,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
