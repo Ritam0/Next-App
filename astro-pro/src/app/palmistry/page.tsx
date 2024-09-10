@@ -7,7 +7,7 @@ import Palmistry_data from '@/data/Palmistry';
 import Pricing from '@/components/Pricing';
 import Preloader from '@/components/Preloader';
 import { useRouter } from 'next/navigation';
-const page = () => {
+const Page = () => {
     const [loggedIn, setLoggedIn] = useState(false);
     const router = useRouter(); // Initialize router for redirection
   
@@ -59,4 +59,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

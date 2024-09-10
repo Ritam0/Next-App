@@ -1,13 +1,14 @@
-"use client";
+"use client"; // Ensure this is at the top to indicate client-side rendering
 import React, { useEffect, useState } from 'react';
-import { Player } from '@lottiefiles/react-lottie-player';
-import planets from "@/app/Assets/planets.json";
+import { useRouter } from 'next/navigation'; // Use this import for Next.js 13+
 import NumerologyApi from '@/data/NumerologyData';
 import { Spotlight } from '@/components/ui/Spotlight';
 import Pricing from '@/components/Pricing';
 import Preloader from '@/components/Preloader';
-import { useRouter } from 'next/navigation';
-const Page = () => {
+import { Player } from '@lottiefiles/react-lottie-player';
+import planets from "@/app/Assets/planets.json";
+
+const Page = () => { // Updated component name to start with an uppercase letter
   const [date, setDate] = useState("");
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
@@ -15,18 +16,17 @@ const Page = () => {
   const [bhagyank, setBhagyank] = useState<number>(0);
   const [isFalse, setIsFalse] = useState<boolean>(false);
   const [found, setFound] = useState<boolean>(false);
-  const [allDisplay,setAllDisplay]=useState(true);
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [allDisplay, setAllDisplay] = useState(true);
   const router = useRouter(); // Initialize router for redirection
-  
-    useEffect(() => {
-      // Check if the user is logged in by verifying if email exists in localStorage
-      if (!localStorage.getItem("email")) {
-        router.push('/login')
-      } 
-    }, [router]);
 
-  const makeSingle = (num:number) => {
+  useEffect(() => {
+    // Check if the user is logged in by verifying if email exists in localStorage
+    if (!localStorage.getItem("email")) {
+      router.push('/login');
+    }
+  }, [router]); // Added router to dependencies
+
+  const makeSingle = (num: number) => {
     while (num >= 10) {
       let sum = 0;
       
@@ -43,9 +43,9 @@ const Page = () => {
   };
 
   const numberCalculate = () => {
-    const day=Number(date);
-    const mo=Number(month);
-    const yr=Number(year);
+    const day = Number(date);
+    const mo = Number(month);
+    const yr = Number(year);
     if (day < 1 || day > 31) {
       setIsFalse(true);
       setFound(false);
@@ -72,12 +72,13 @@ const Page = () => {
       setMulank(mulankResult);
       setBhagyank(bhagyankResult);
       setFound(true);
-      
     }
   };
-const changeDisplay=()=>{
-  setAllDisplay(!allDisplay);
-}
+
+  const changeDisplay = () => {
+    setAllDisplay(!allDisplay);
+  };
+
   return (
     <div className="min-h-screen bg-black antialiased bg-grid-white/[0.2] text-white flex flex-col items-center justify-center gap-4 pt-36 md:pt-0 pb-6 h-auto  w-full relative overflow-hidden mx-auto">
       <Preloader/>

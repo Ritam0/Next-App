@@ -5,7 +5,7 @@ import Pricing from '@/components/Pricing'
 import { Spotlight } from '@/components/ui/Spotlight'
 import React from 'react'
 
-const page = () => {
+const Page = () => {
   return (
     <div className='h-auto  w-full relative overflow-hidden mx-auto'>
       <Preloader/>
@@ -18,4 +18,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
