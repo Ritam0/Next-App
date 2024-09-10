@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { Spotlight } from '@/components/ui/Spotlight';
 import Preloader from '@/components/Preloader';
-
+import {auth} from "@/services/firebase"
 export default function Register() {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');

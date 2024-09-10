@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Player } from '@lottiefiles/react-lottie-player';
 import Rashi from "@/app/Assets/Rashi-fal.json";
@@ -7,7 +7,7 @@ import LoaderAnimation from "@/app/Assets/loader.json";  // Your loader animatio
 import { Spotlight } from '@/components/ui/Spotlight';
 import Pricing from '@/components/Pricing';
 import Preloader from '@/components/Preloader';
-
+import { useRouter } from 'next/navigation';
 const Page = () => {
     const [zodiac, setZodiac] = useState("");
     const [activeZodiac, setActiveZodiac] = useState("");
@@ -18,7 +18,14 @@ const Page = () => {
     const [details, setDetails] = useState("");
     const [name, setName] = useState("");
     const [loading, setLoading] = useState(false);  // Add loading state
-
+    const router = useRouter(); // Initialize router for redirection
+  
+    useEffect(() => {
+      // Check if the user is logged in by verifying if email exists in localStorage
+      if (!localStorage.getItem("email")) {
+        router.push('/login')
+      } 
+    }, []);
     const zodiacSigns = [
         "Aries", "Taurus", "Gemini", "Cancer", "Leo", 
         "Virgo", "Libra", "Scorpio", "Sagittarius", 

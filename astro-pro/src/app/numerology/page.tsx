@@ -1,11 +1,12 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
 import planets from "@/app/Assets/planets.json";
 import NumerologyApi from '@/data/NumerologyData';
 import { Spotlight } from '@/components/ui/Spotlight';
 import Pricing from '@/components/Pricing';
 import Preloader from '@/components/Preloader';
+import { useRouter } from 'next/navigation';
 const Page = () => {
   const [date, setDate] = useState("");
   const [month, setMonth] = useState("");
@@ -15,6 +16,15 @@ const Page = () => {
   const [isFalse, setIsFalse] = useState<boolean>(false);
   const [found, setFound] = useState<boolean>(false);
   const [allDisplay,setAllDisplay]=useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const router = useRouter(); // Initialize router for redirection
+  
+    useEffect(() => {
+      // Check if the user is logged in by verifying if email exists in localStorage
+      if (!localStorage.getItem("email")) {
+        router.push('/login')
+      } 
+    }, [router]);
 
   const makeSingle = (num:number) => {
     while (num >= 10) {

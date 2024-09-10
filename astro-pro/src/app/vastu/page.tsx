@@ -1,12 +1,22 @@
 "use client"
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Player } from '@lottiefiles/react-lottie-player';
 import vastu from "@/app/Assets/vastu_animation.json";
 import { Spotlight } from '@/components/ui/Spotlight';
 import Vastu_data from '@/data/vastuData';
 import Pricing from '@/components/Pricing';
 import Preloader from '@/components/Preloader';
+import { useRouter } from 'next/navigation';
 const page = () => {
+    const [loggedIn, setLoggedIn] = useState(false);
+    const router = useRouter(); // Initialize router for redirection
+  
+    useEffect(() => {
+      // Check if the user is logged in by verifying if email exists in localStorage
+      if (!localStorage.getItem("email")) {
+        router.push('/login')
+      } 
+    }, []);
   return (
     <div className='dark bg-black w-full h-full min-h-screen p-4 h-auto  w-full relative overflow-hidden mx-auto'>
         <Preloader/>
