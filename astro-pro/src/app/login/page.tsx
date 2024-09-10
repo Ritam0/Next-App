@@ -61,7 +61,7 @@ const LoginCard: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen dark bg-black w-full h-full p-4 relative overflow-hidden mx-auto">
+    <div className="flex flex-col items-center justify-center min-h-screen dark bg-black w-full h-full p-4 pt-24 relative overflow-hidden mx-auto">
       <Preloader />
       <Spotlight
         className="top-10 h-[1800px] w-[1800px] left-36 md:left-80 md:-top-40"
