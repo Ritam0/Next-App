@@ -69,7 +69,7 @@ const Navbar = ({ className }: { className?: string }) => {
           ) : (
             <>
               <Link href={'/dashboard'} className="flex gap-4 md:gap-8 text-[15px]">
-                <MenuItem setActive={setActive} active={active} item="Dashboard" />
+                <MenuItem setActive={setActive} active={active} item="Profile" />
               </Link>
             </>
           )}
