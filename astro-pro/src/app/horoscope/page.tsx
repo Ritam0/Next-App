@@ -1,13 +1,17 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Player } from '@lottiefiles/react-lottie-player';
+import dynamic from 'next/dynamic';
 import Rashi from "@/app/Assets/Rashi-fal.json";
 import LoaderAnimation from "@/app/Assets/loader.json";  // Your loader animation JSON file
 import { Spotlight } from '@/components/ui/Spotlight';
 import Pricing from '@/components/Pricing';
 import Preloader from '@/components/Preloader';
 import { useRouter } from 'next/navigation';
+const Player = dynamic(
+    () => import('@lottiefiles/react-lottie-player').then((mod) => mod.Player),
+    { ssr: false }
+);
 const Page = () => {
     const [zodiac, setZodiac] = useState("");
     const [activeZodiac, setActiveZodiac] = useState("");

@@ -1,12 +1,16 @@
 "use client"
 import { Spotlight } from '@/components/ui/Spotlight'
 import React, { useEffect, useState } from 'react'
-import { Player } from '@lottiefiles/react-lottie-player';
+import dynamic from 'next/dynamic';
 import palm from "@/app/Assets/palm.json";
 import Palmistry_data from '@/data/Palmistry';
 import Pricing from '@/components/Pricing';
 import Preloader from '@/components/Preloader';
 import { useRouter } from 'next/navigation';
+const Player = dynamic(
+    () => import('@lottiefiles/react-lottie-player').then((mod) => mod.Player),
+    { ssr: false }
+);
 const Page = () => {
     const [loggedIn, setLoggedIn] = useState(false);
     const router = useRouter(); // Initialize router for redirection

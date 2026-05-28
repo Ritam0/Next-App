@@ -1,7 +1,11 @@
 "use client"
 import { useEffect, useState } from 'react';
-import Lottie from 'react-lottie-player';
+import dynamic from 'next/dynamic';
 import animationData from '@/app/Assets/preLoad.json'; // Replace with your Lottie file path
+
+const Lottie = dynamic(() => import('react-lottie-player'), {
+    ssr: false,
+});
 
 export default function Preloader() {
     const [isLoading, setIsLoading] = useState(true);

@@ -10,8 +10,12 @@ import {
 import { useRouter } from "next/navigation";
 import Preloader from '@/components/Preloader';
 import { Spotlight } from '@/components/ui/Spotlight';
-import { Player } from "@lottiefiles/react-lottie-player";
+import dynamic from 'next/dynamic';
 import login_lottie from "@/app/Assets/coming.json";
+const Player = dynamic(
+  () => import('@lottiefiles/react-lottie-player').then((mod) => mod.Player),
+  { ssr: false }
+);
 
 const LoginCard: React.FC = () => {
   const [email, setEmail] = useState<string>("");

@@ -1,12 +1,16 @@
 "use client"; // Ensure this is at the top for client-side rendering
 import React, { useEffect, useState } from 'react';
-import { Player } from '@lottiefiles/react-lottie-player';
+import dynamic from 'next/dynamic';
 import vastu from "@/app/Assets/vastu_animation.json";
 import { Spotlight } from '@/components/ui/Spotlight';
 import Vastu_data from '@/data/vastuData';
 import Pricing from '@/components/Pricing';
 import Preloader from '@/components/Preloader';
 import { useRouter } from 'next/navigation';
+const Player = dynamic(
+    () => import('@lottiefiles/react-lottie-player').then((mod) => mod.Player),
+    { ssr: false }
+);
 
 const Page = () => { // Updated component name to start with an uppercase letter
     const [loggedIn, setLoggedIn] = useState(false);

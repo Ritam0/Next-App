@@ -4,13 +4,19 @@ import Pricing from '@/components/Pricing';
 import { Spotlight } from '@/components/ui/Spotlight';
 import { useSession, signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 export default function Profile() {
     const { data: session, status } = useSession();
     const router = useRouter();
 
-    if (!session) {
-        router.push('/sign-in'); // Redirect to login if not authenticated
+    useEffect(() => {
+        if (status !== 'loading' && !session) {
+            router.push('/sign-in');
+        }
+    }, [router, session, status]);
+
+    if (status === 'loading' || !session) {
         return null;
     }
 

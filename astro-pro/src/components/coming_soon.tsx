@@ -1,8 +1,12 @@
 "use client"
 import { Spotlight } from '@/components/ui/Spotlight'
 import React from 'react'
-import { Player } from '@lottiefiles/react-lottie-player';
+import dynamic from 'next/dynamic';
 import coming from "@/app/Assets/coming.json";
+const Player = dynamic(
+  () => import('@lottiefiles/react-lottie-player').then((mod) => mod.Player),
+  { ssr: false }
+);
 const Coming_soon = () => {
   return (
     <div className='h-auto  w-full relative overflow-hidden mx-auto'>

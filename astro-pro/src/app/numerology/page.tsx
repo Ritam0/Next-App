@@ -5,8 +5,12 @@ import NumerologyApi from '@/data/NumerologyData';
 import { Spotlight } from '@/components/ui/Spotlight';
 import Pricing from '@/components/Pricing';
 import Preloader from '@/components/Preloader';
-import { Player } from '@lottiefiles/react-lottie-player';
+import dynamic from 'next/dynamic';
 import planets from "@/app/Assets/planets.json";
+const Player = dynamic(
+  () => import('@lottiefiles/react-lottie-player').then((mod) => mod.Player),
+  { ssr: false }
+);
 
 const Page = () => { // Updated component name to start with an uppercase letter
   const [date, setDate] = useState("");

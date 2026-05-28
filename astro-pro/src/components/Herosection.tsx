@@ -1,10 +1,14 @@
 "use client"
 import React from 'react'
-import { Player } from '@lottiefiles/react-lottie-player';
+import dynamic from 'next/dynamic';
 import ExampleButton from './FortuneButton';
 import horoscope from "@/app/Assets/horoscope.json";
 import planets from "@/app/Assets/planets.json";
 import { Spotlight } from './ui/Spotlight';
+const Player = dynamic(
+  () => import('@lottiefiles/react-lottie-player').then((mod) => mod.Player),
+  { ssr: false }
+);
 const Herosection = () => {
   return (
     <div className='flex flex-col gap-6 items-center justify-center h-auto  w-full relative overflow-hidden mx-auto '>
